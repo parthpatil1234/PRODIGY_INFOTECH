@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Portfolio</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Additional custom styles */
+    body {
+      font-family: 'Helvetica', sans-serif;
+      background-color: #ffc0cb; /* Pink background color */
+      color: #444; /* Dark text color */
+      margin: 0;
+      padding: 0;
+      background-image: url('images/cnt.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    header {
+      background-color: #008000; /* Green header background color */
+      color: #fff; /* White text color */
+      padding: 20px 0;
+      text-align: center;
+      margin-bottom: 20px;
+      position: relative; /* Set position to relative */
+      z-index: 1; /* Set higher z-index value */
+    }
+
+    footer {
+      background-color: #008000; /* Green footer background color */
+      color: #fff; /* White text color */
+      padding: 20px 0;
+      text-align: center;
+      position: relative; /* Set position to relative */
+      z-index: 2; /* Set higher z-index value */
+    }
+
+    #contact {
+      position: relative; /* Set position to relative */
+      z-index: 2; /* Set higher z-index value */
+    }
+
+    #confirmationMessage {
+      display: none;
+      color: #008000; /* Green color for confirmation message */
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>My Portfolio</h1>
+      <nav>
+        <ul>
+          <li><a href="home.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section id="contact">
+    <div class="container">
+      <h2>Contact Me</h2>
+      <form id="contactForm" onsubmit="handleSubmit(event)">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+      <p id="confirmationMessage">Message sent successfully!</p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>&copy; My Portfolio. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    function handleSubmit(event) {
+      event.preventDefault();
+      document.getElementById('confirmationMessage').style.display = 'block';
+      setTimeout(function() {
+        document.getElementById('confirmationMessage').style.display = 'none';
+      }, 3000); // Hide the message after 3 seconds (3000 milliseconds)
+      event.target.reset();
+    }
+  </script>
+</body>
+</html>
